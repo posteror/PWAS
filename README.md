@@ -1,5 +1,5 @@
 # Setup
-1. Extract files from Releases into `C:\Program Files`
+1. Extract files from [Releases](https://github.com/vologin/pwacc/releases/tag/v1.0) into `C:\Program Files`
 2. Open PowerShell Profile:
 ```ps1
 notepad $PROFILE
