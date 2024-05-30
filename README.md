@@ -1,24 +1,86 @@
-# Setup
-1. Extract files from [Releases](https://github.com/vologin/pwacc/releases/tag/v1.0) into `C:\Program Files`
-2. Open PowerShell Profile:
-```ps1
-notepad $PROFILE
-```
-3. Add this line:
-```ps1
-Set-Alias -Name pwacc -Value "C:\Program Files\pwacc\pwacc\pwacc.ps1"
-```
-4. Go to `C:\Program Files\pwacc\pwacc\accounts`, add your accounts using next template and save it as `.txt` file:
-```txt
-CognitoIdentityFileName=BinaryValue (67 2b 78 65 30 50 4c 38 57...)
-lastLoginKeyFileName=BinaryValue (67 2b 78 65 30 50 4c 38 57...)
-```
-5. Type `pwacc fileName` inside of PowerShell, output should look like that:
-```ps1
-> pwacc MyCoolFileName
-Processing file: C:\Program Files\pwacc\pwacc\accounts\MyCoolFileName.txt
-Registry value updated for CognitoIdentity:IdentityId:us-east-1:b9d5be2b-8fae-4bc6-8a4b-e35fab411d76_h774736173
-Registry value updated for lastLoginKey_h2295063355
-Processing complete for C:\Program Files\pwacc\pwacc\accounts\MyCoolFileName.txt
-Registry update completed for MyCoolFileName.txt in C:\Program Files\pwacc\pwacc\accounts
-```
+# Pixel Worlds Account Switcher
+
+This repository contains a PowerShell script to manage and switch accounts in the Pixel Worlds game. Follow the steps below to set up and use the script.
+
+## Table of Contents
+1. [Installation](#installation)
+2. [Configuration](#configuration)
+3. [Usage](#usage)
+
+## Installation
+
+1. **Extract the `pwas.pw1` File**
+
+   Extract the `pwas.pw1` file to a desired location on your system. For example, you can extract it to `C:\Program Files\pwas\`.
+
+2. **Set Up PowerShell Profile**
+
+   Add the following line to your PowerShell profile to create an alias for the script. This allows you to run the script easily from any PowerShell session.
+
+   Open your PowerShell profile file by running the following command in PowerShell:
+   ```powershell
+   notepad $PROFILE
+   ```
+
+   Add the following line to the PowerShell profile file:
+   ```powershell
+   Set-Alias -Name pwas -Value "C:\Your\Path\To\pwas.ps1"
+   ```
+
+   Save and close the file.
+
+## Configuration
+
+1. **Define Accounts Folder Destination**
+
+   You need to specify the accounts folder destination inside the `pwas.ps1` script. This folder will store account information and configurations.
+
+   Open the `pwas.ps1` file in a text editor:
+   ```powershell
+   notepad "C:\Your\Path\To\pwas.ps1"
+   ```
+
+   Locate the section where the accounts folder destination is defined. It should look something like this:
+   ```powershell
+   # Define the accounts folder destination
+   $accountsFolder = "C:\Path\To\Accounts\Folder"
+   ```
+
+   Modify the path to point to your desired accounts folder location. For example:
+   ```powershell
+   $accountsFolder = "C:\Users\YourUsername\Documents\PixelWorldsAccounts"
+   ```
+
+   Save and close the file.
+
+## Usage
+
+1. **Switching Accounts**
+
+   To switch accounts, simply open a PowerShell session and run the following command:
+   ```powershell
+   pwas
+   ```
+
+   Follow the on-screen prompts to select and switch to the desired account.
+
+2. **Adding New Accounts**
+
+   To add a new account, you can modify the accounts folder directly by adding new `.account` files. Ensure each account has its own `.account` file within the accounts folder specified in the `pwas.ps1` script.
+
+   For example:
+   ```
+   C:\Users\YourUsername\Documents\PixelWorldsAccounts
+   ├── Account1.account
+   ├── Account2.account
+   └── Account3.account
+   ```
+
+   Each `.account` file should contain the necessary account information in binary values. The structure of each file should include:
+
+   ```
+   CognitoIdentity:20 30 3B 8B 50
+   LastLoginKey:30 40 90 7B 2B 7B 9A 12
+   ```
+
+   This format includes binary values representing the account details.
