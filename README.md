@@ -1,4 +1,4 @@
-# Pixel Worlds Account Switcher
+# PWAS (or **P**ixel **W**orlds **A**ccount **S**witcher)
 
 This repository contains a PowerShell script to manage and switch accounts in the Pixel Worlds game. Follow the steps below to set up and use the script.
 
