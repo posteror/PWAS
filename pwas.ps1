@@ -3,7 +3,7 @@ param (
 )
 
 $registryPath = "HKCU:\Software\Kukouri\Pixel Worlds"
-$accountsDirectory = "C:\Users\Max\Documents\pwacc\accounts"
+$accountsDirectory = ""
 
 # Function to set registry binary value
 function Set-RegistryBinary {
