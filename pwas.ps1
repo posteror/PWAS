@@ -2,7 +2,8 @@ param (
     [string]$fileName
 )
 
-$registryPath = "HKCU:\Software\Kukouri\Pixel Worlds"  # Define registry path
+$registryPath = "HKCU:\Software\Kukouri\Pixel Worlds"
+$accountsDirectory = "C:\Users\Max\Documents\pwacc\accounts"
 
 # Function to set registry binary value
 function Set-RegistryBinary {
@@ -18,28 +19,26 @@ if (-not $fileName) {
     exit 1
 }
 
-$accountsDirectory = "C:\Program Files\pwacc\pwacc\accounts"
-
 # Check if the accounts directory exists
 if (-not (Test-Path $accountsDirectory -PathType Container)) {
     Write-Host "Accounts directory not found: $accountsDirectory"
     exit 1
 }
 
-# Get the exact .txt file matching the provided filename
-$txtFile = Get-ChildItem -Path $accountsDirectory -Filter "$fileName.txt" | Select-Object -First 1
+# Get the exact .account file matching the provided filename
+$accountFile = Get-ChildItem -Path $accountsDirectory -Filter "$fileName.account" | Select-Object -First 1
 
 # Check if the file exists
-if (-not $txtFile) {
-    Write-Host "No .txt file found with the name '$fileName.txt' in $accountsDirectory"
+if (-not $accountFile) {
+    Write-Host "No .account file found with the name '$fileName.account' in $accountsDirectory"
     exit 1
 }
 
-# Process the exact .txt file
-Write-Host "Processing file: $($txtFile.FullName)"
+# Process the exact .accountFile file
+Write-Host "Processing file: $($accountFile.FullName)"
 
 # Open and process the contents of the file
-Get-Content $txtFile.FullName | ForEach-Object {
+Get-Content $accountFile.FullName | ForEach-Object {
     $line = $_
 
     # Split the line into key and value parts
@@ -61,5 +60,5 @@ Get-Content $txtFile.FullName | ForEach-Object {
     Write-Host "Registry value updated for $key"
 }
 
-Write-Host "Processing complete for $($txtFile.FullName)"
-Write-Host "Registry update completed for $fileName.txt in $accountsDirectory"
+Write-Host "Processing complete for $($accountFile.FullName)"
+Write-Host "Registry update completed for $fileName.account in $accountsDirectory"
