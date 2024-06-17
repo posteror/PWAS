@@ -9,9 +9,9 @@ This repository contains a PowerShell script to manage and switch accounts in th
 
 ## Installation
 
-1. **Extract the `pwas.pw1` File**
+1. **Extract the `pwas.ps1` File**
 
-   Extract the `pwas.pw1` file to a desired location on your system. For example, you can extract it to `C:\Program Files\pwas\`.
+   Extract the `pwas.ps1` file to a desired location on your system. For example, you can extract it to `C:\Program Files\pwas\`.
 
 2. **Set Up PowerShell Profile**
 
