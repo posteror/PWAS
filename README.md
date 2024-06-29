@@ -62,7 +62,10 @@ This repository contains a PowerShell script to manage and switch accounts in th
    pwas
    ```
 
-   Follow the on-screen prompts to select and switch to the desired account.
+   After `pwas` alias type name of the account (.account file) you want to switch to, like that:
+   ```powershell
+   pwas Account1
+   ```
 
 2. **Adding New Accounts**
 
