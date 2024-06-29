@@ -15,7 +15,7 @@ function Set-RegistryBinary {
 }
 
 if (-not $fileName) {
-    Write-Host "Usage: pwacc.ps1 filename"
+    Write-Host "Usage: pwas filename"
     exit 1
 }
 
